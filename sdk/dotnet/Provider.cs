@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.K8sdatadog
+namespace Pulumi.Kafkacluster
 {
-    [K8sdatadogResourceType("pulumi:providers:k8sdatadog")]
+    [KafkaclusterResourceType("pulumi:providers:kafkacluster")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
@@ -20,7 +20,7 @@ namespace Pulumi.K8sdatadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("k8sdatadog", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("kafkacluster", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -29,7 +29,7 @@ namespace Pulumi.K8sdatadog
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "github://api.github.com/pulumi-pequod/pequod-mlc-k8sdatadog",
+                PluginDownloadURL = "github://api.github.com/pulumi-pequod/pequod-mlc-kafkacluster",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

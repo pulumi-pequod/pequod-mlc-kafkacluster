@@ -1,5 +1,5 @@
-# Pequod K8s Datadog Multilanguage Component
-This multilanguage component is used to setup Datadog monitoring for K8s clusters.
+# Pequod Kafka Cluster Multilanguage Component
+This multilanguage component is used to deploy a Kafka Cluster (using Confluent).
 
 ## Building and Publishing the MLC 
 Whenever the component code (under provider/cmd/pulumi-resource...) or schema.json, etc has been udated, follow the process below to make the updated version available:

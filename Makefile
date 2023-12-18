@@ -1,6 +1,6 @@
-VERSION         := 2.0.1
+VERSION         := 1.0.0
 
-PACK            := k8sdatadog
+PACK            := kafkacluster
 ORG							:= pulumi-pequod
 PROJECT         := github.com/${ORG}/${PACK}
 

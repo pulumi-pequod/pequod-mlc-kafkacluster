@@ -53,7 +53,7 @@ export function getVersion(): string {
 
 /** @internal */
 export function resourceOptsDefaults(): any {
-    return { version: getVersion(), pluginDownloadURL: "github://api.github.com/pulumi-pequod/pequod-mlc-k8sdatadog" };
+    return { version: getVersion(), pluginDownloadURL: "github://api.github.com/pulumi-pequod/pequod-mlc-kafkacluster" };
 }
 
 /** @internal */

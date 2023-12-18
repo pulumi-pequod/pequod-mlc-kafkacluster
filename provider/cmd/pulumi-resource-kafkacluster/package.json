@@ -1,0 +1,12 @@
+{
+    "version": "${VERSION}",
+    "bin": "bin/index.js",
+    "dependencies": {
+        "@pulumi/confluentcloud": "^1.6.0"
+      },
+    "devDependencies": {
+        "@types/node": "^10.0.0",
+        "pkg": "^5.6.0",
+        "typescript": "^5.3.2"    
+    }
+}

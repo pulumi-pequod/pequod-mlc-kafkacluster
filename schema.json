@@ -1,26 +1,43 @@
 {
-    "name": "k8sdatadog",
-    "pluginDownloadURL": "github://api.github.com/pulumi-pequod/pequod-mlc-k8sdatadog",
+    "name": "kafkacluster",
+    "pluginDownloadURL": "github://api.github.com/pulumi-pequod/pequod-mlc-kafkacluster",
     "resources": {
-        "k8sdatadog:index:K8sMonitor": {
+        "kafkacluster:index:ConfluentCluster": {
             "isComponent": true,
             "inputProperties": {
-                "apiKey": {
+                "kafkaClusterName": {
                     "type": "string",
-                    "description": "Datadog API key needed by k8s agent to communicate with Datadog"
+                    "description": "Name to use for kafka cluster display name."
+                },
+                "kafkaTopics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Array of topics for the kafka cluster."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Region for cluster. Default is region used by rest of stack."
                 }
             },
             "requiredInputs": [
-                "apiKey"
+                "kafkaClusterName",
+                "kafkaTopics"
             ],
             "properties": {
-                "namespace": {
+                "envId": {
                     "type": "string",
-                    "description": "Namespace in which datadog agent is installed."
+                    "description": "Name of the Confluent environment that was created"
+                },
+                "kafkaUrl": {
+                    "type": "string",
+                    "description": "URL for the Kafka environment."
                 }
             },
             "required": [
-                "namespace"
+                "envId",
+                "kafkaUrl"
             ]
         }
     },
@@ -28,22 +45,20 @@
         "csharp": {
             "packageReferences": {
                 "Pulumi": "3.*",
-                "Pulumi.PulumiService": "0.*"
+                "Pulumi.ConfluentCloud": "1.*"
             },
             "respectSchemaVersion": true
         },
         "go": {
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi-pequod/pequod-mlc-k8sdatadog/sdk/go/k8sdatadog",
+            "importBasePath": "github.com/pulumi-pequod/pequod-mlc-kafkacluster/sdk/go/kafkacluster",
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageName": "@pequod/k8sdatadog",
+            "packageName": "@pequod/kafkacluster",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0",
-                "@pulumi/pulumiservice": "^0.16.0",
-                "@types/node-fetch": "^2.6.2",
-                "node-fetch": "^2.6.2"
+                "@pulumi/confluentcloud": "^1.0.0"
             },
             "devDependencies": {
                 "@types/node": "^10.0.0",
@@ -53,10 +68,10 @@
             "respectSchemaVersion": true
         },
         "python": {
-            "packageName": "pequod_k8sdatadog",
+            "packageName": "pequod_kafkacluster",
             "requires": {
                 "pulumi": ">=3.0.0,<4.0.0",
-                "pulumi-pulumiservice": ">=0.0.0,<1.0.0"
+                "pulumi_confluentcloud": ">=1.0.0,<2.0.0"
             },
             "respectSchemaVersion": true
         }

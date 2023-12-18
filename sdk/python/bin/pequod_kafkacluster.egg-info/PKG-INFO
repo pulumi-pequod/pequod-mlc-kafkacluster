@@ -1,3 +1,9 @@
+Metadata-Version: 2.1
+Name: pequod-kafkacluster
+Version: 1.0.0
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
 # Pequod Kafka Cluster Multilanguage Component
 This multilanguage component is used to deploy a Kafka Cluster (using Confluent).
 

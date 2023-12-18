@@ -8,23 +8,23 @@ from setuptools.command.install import install
 from subprocess import check_call
 
 
-VERSION = "2.0.1"
+VERSION = "1.0.0"
 def readme():
     try:
         with open('README.md', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
-        return "k8sdatadog Pulumi Package - Development Version"
+        return "kafkacluster Pulumi Package - Development Version"
 
 
-setup(name='pequod_k8sdatadog',
+setup(name='pequod_kafkacluster',
       python_requires='>=3.7',
       version=VERSION,
       long_description=readme(),
       long_description_content_type='text/markdown',
       packages=find_packages(),
       package_data={
-          'pequod_k8sdatadog': [
+          'pequod_kafkacluster': [
               'py.typed',
               'pulumi-plugin.json',
           ]
@@ -32,7 +32,7 @@ setup(name='pequod_k8sdatadog',
       install_requires=[
           'parver>=0.2.1',
           'pulumi>=3.0.0,<4.0.0',
-          'pulumi-pulumiservice>=0.0.0,<1.0.0',
+          'pulumi_confluentcloud>=1.0.0,<2.0.0',
           'semver>=2.8.1'
       ],
       zip_safe=False)

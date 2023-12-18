@@ -1,5 +1,0 @@
-{
-  "resource": true,
-  "name": "k8sdatadog",
-  "server": "github://api.github.com/pulumi-pequod/pequod-mlc-k8sdatadog"
-}

@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-pequod-k8sdatadog
+module github.com/pulumi/pulumi-pequod-kafkacluster
 
 go 1.17
 

@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { K8sMonitorArgs } from "./k8sMonitor";
-export type K8sMonitor = import("./k8sMonitor").K8sMonitor;
-export const K8sMonitor: typeof import("./k8sMonitor").K8sMonitor = null as any;
-utilities.lazyLoad(exports, ["K8sMonitor"], () => require("./k8sMonitor"));
+export { ConfluentClusterArgs } from "./confluentCluster";
+export type ConfluentCluster = import("./confluentCluster").ConfluentCluster;
+export const ConfluentCluster: typeof import("./confluentCluster").ConfluentCluster = null as any;
+utilities.lazyLoad(exports, ["ConfluentCluster"], () => require("./confluentCluster"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
@@ -20,18 +20,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "k8sdatadog:index:K8sMonitor":
-                return new K8sMonitor(name, <any>undefined, { urn })
+            case "kafkacluster:index:ConfluentCluster":
+                return new ConfluentCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("k8sdatadog", "index", _module)
-pulumi.runtime.registerResourcePackage("k8sdatadog", {
+pulumi.runtime.registerResourceModule("kafkacluster", "index", _module)
+pulumi.runtime.registerResourcePackage("kafkacluster", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:k8sdatadog") {
+        if (type !== "pulumi:providers:kafkacluster") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });
