@@ -51,7 +51,7 @@ export class ConfluentCluster extends pulumi.ComponentResource {
 
         const managerApiKey = new confluent.ApiKey(`${name}-app-manager-kafka-api-key`, {
             displayName: "app-manager-kafka-api-key",
-            description: `Kafka API Key that is managed by Pulumi stack, ${pulumi.getOrganization()}/${pulumi.getProject()}/${pulumi.getStack()}`,
+            description: `Kafka API Key that is managed by Pulumi stack, ${pulumi.getProject()}/${pulumi.getStack()}`,
             owner: {
                 id: serviceAccount.id,
                 kind: serviceAccount.kind,
